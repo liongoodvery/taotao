@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="taotao-dao" pattern="file[taotao-manager-dao]:*/" />
+</component>
