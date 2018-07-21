@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="manager-pojo" pattern="file[taotao-manager-pojo]:*/" />
+</component>

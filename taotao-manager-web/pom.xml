@@ -9,6 +9,11 @@
     <artifactId>taotao-manager-web</artifactId>
     <packaging>war</packaging>
     <dependencies>
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>taotao-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!-- manager-interface接口 -->
         <dependency>
             <groupId>com.taotao</groupId>
