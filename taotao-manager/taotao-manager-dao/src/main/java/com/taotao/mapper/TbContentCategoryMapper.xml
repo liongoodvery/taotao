@@ -87,7 +87,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from tb_content_category
     where id = #{id,jdbcType=BIGINT}
@@ -111,6 +111,9 @@
       #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.taotao.pojo.TbContentCategory" >
+    <selectKey keyProperty="id" order="AFTER" resultType="long">
+      select LAST_INSERT_ID()
+    </selectKey>
     insert into tb_content_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
