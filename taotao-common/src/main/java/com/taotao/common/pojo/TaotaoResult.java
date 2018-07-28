@@ -3,10 +3,10 @@ package com.taotao.common.pojo;
 import java.io.Serializable;
 
 /**
- * 
+ *
  */
-public class TaotaoResult implements Serializable{
-	
+public class TaotaoResult<T> implements Serializable {
+
     // 响应业务状态
     private Integer status;
 
@@ -14,14 +14,14 @@ public class TaotaoResult implements Serializable{
     private String msg;
 
     // 响应中的数据
-    private Object data;
-    
+    private T data;
+
     //构建其他状态的taotaoresult对象
-    public static TaotaoResult build(Integer status, String msg, Object data) {
+    public static <T> TaotaoResult build(Integer status, String msg, T data) {
         return new TaotaoResult(status, msg, data);
     }
 
-    public static TaotaoResult ok(Object data) {
+    public static <T> TaotaoResult ok(T data) {
         return new TaotaoResult(data);
     }
 
@@ -37,13 +37,13 @@ public class TaotaoResult implements Serializable{
         return new TaotaoResult(status, msg, null);
     }
 
-    public TaotaoResult(Integer status, String msg, Object data) {
+    public TaotaoResult(Integer status, String msg, T data) {
         this.status = status;
         this.msg = msg;
         this.data = data;
     }
 
-    public TaotaoResult(Object data) {
+    public TaotaoResult(T data) {
         this.status = 200;
         this.msg = "OK";
         this.data = data;
@@ -65,11 +65,11 @@ public class TaotaoResult implements Serializable{
         this.msg = msg;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 

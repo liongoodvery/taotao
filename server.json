@@ -1,0 +1,26 @@
+{
+  "manager-service": {
+    "http_port": 8086,
+    "jmx_port": 48086
+  },
+  "content-service": {
+    "http_port": 8084,
+    "jmx_port": 48084
+  },
+  "manager-web": {
+    "http_port": 8087,
+    "jmx_port": 48087
+  },
+  "search-web": {
+    "http_port": 8011,
+    "jmx_port": 48011
+  },
+  "search-service": {
+    "http_port": 8012,
+    "jmx_port": 48012
+  },
+  "portal-web": {
+    "http_port": 8089,
+    "jmx_port": 48089
+  }
+}

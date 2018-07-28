@@ -18,7 +18,8 @@
     <dubbo:protocol name="dubbo" port="20880"/>
     <!-- 发布服务 -->
     <dubbo:service interface="com.taotao.service.TestService" ref="testServiceImpl"/>
-    <dubbo:service interface="com.taotao.service.PageService" ref="pageServiceImpl" />
-    <!--<dubbo:service interface="com.taotao.service.ItemCatService" ref="itemCatServiceImpl" /> -->
+    <dubbo:service interface="com.taotao.service.PageService" ref="pageServiceImpl"/>
+    <dubbo:service interface="com.taotao.service.ItemCatService" ref="itemCatServiceImpl"/>
+    <dubbo:service interface="com.taotao.service.ItemService" ref="itemServiceImpl"/>
 </beans>
 

@@ -1,28 +1,42 @@
 package com.taotao.service;
 
-import com.taotao.common.pojo.EasyUITreeNode;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
+import com.taotao.common.pojo.PageResult;
+import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.pojo.TbContent;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
-
-import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class) //使用junit4进行测试
-@ContextConfiguration(locations = "classpath:spring/applicationContext-*.xml")
-@WebAppConfiguration
+@ContextConfiguration(locations = "classpath:spring/test_applicationContext-*.xml")
+@Transactional
+@Rollback
 public class ContentServiceTest {
     @Autowired
-    ContentCategoryService service;
+    ContentService contentService;
 
     @Test
-    public void test13() throws Exception {
-        List<EasyUITreeNode> categoryList = service.getContentCategoryList(0L);
-        String s = ToStringBuilder.reflectionToString(categoryList, ToStringStyle.MULTI_LINE_STYLE);
-        System.out.println(s);
+    public void testQuery() throws Exception {
+        PageResult<TbContent> result = contentService.queryContents(89L, 1, 20);
+        for (TbContent tbContent : result.getData()) {
+//            System.out.println(ToStringBuilder.reflectionToString(tbContent));
+        }
+    }
+
+    @Test
+    public void testSave() throws Exception {
+        PageResult<TbContent> result = contentService.queryContents(89L, 1, 20);
+        TbContent tbContent = result.getData().get(0);
+        tbContent.setId(null);
+        tbContent.setTitleDesc("aaaaaaaaa");
+        tbContent.setTitle("ddddddddddddddd");
+        TaotaoResult taotaoResult = contentService.saveContent(tbContent);
+        Assert.assertTrue(taotaoResult.getStatus() == 200);
+        Assert.assertNotNull(tbContent.getId());
     }
 }

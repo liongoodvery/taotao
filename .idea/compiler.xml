@@ -18,5 +18,8 @@
         <module name="util-generator" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="taotao-test" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

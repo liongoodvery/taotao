@@ -54,4 +54,41 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
         }
         return TaotaoResult.ok(category);
     }
+
+    @Override
+    public TaotaoResult updateContentCategory(Long contentId, String name) {
+        TbContentCategory category = mapper.selectByPrimaryKey(contentId);
+        if (category == null) {
+            return new TaotaoResult(100009, "not exist", null);
+        }
+
+        category.setName(name);
+        category.setUpdated(new Date());
+
+        mapper.updateByPrimaryKeySelective(category);
+
+        return TaotaoResult.ok(category);
+    }
+
+    @Override
+    public TaotaoResult deleteContentCategory(Long contentId, String name) {
+        TbContentCategory category = mapper.selectByPrimaryKey(contentId);
+
+        Long parentId = category.getParentId();
+
+        TbContentCategory parent = mapper.selectByPrimaryKey(parentId);
+        if (parent != null) {
+            TbContentCategoryExample example = new TbContentCategoryExample();
+            TbContentCategoryExample.Criteria criteria = example.createCriteria();
+            criteria.andParentIdEqualTo(parentId);
+            int count = mapper.countByExample(example);
+            if (count == 1) {
+                parent.setIsParent(false);
+                mapper.updateByPrimaryKey(parent);
+            }
+        }
+
+        int result = mapper.deleteByPrimaryKey(contentId);
+        return result > 0 ? TaotaoResult.ok() : new TaotaoResult(2200, "delete Failed", null);
+    }
 }

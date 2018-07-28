@@ -5,10 +5,12 @@
         <groupId>com.taotao</groupId>
         <artifactId>taotao-manager</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath />
     </parent>
     <artifactId>taotao-manager-service</artifactId>
     <packaging>war</packaging>
     <dependencies>
+
         <!-- 添加接口的依赖 -->
         <dependency>
             <groupId>com.taotao</groupId>
@@ -95,6 +97,12 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.192</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

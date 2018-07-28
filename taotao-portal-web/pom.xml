@@ -6,6 +6,7 @@
         <artifactId>taotao-parent</artifactId>
         <groupId>com.taotao</groupId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath/>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -89,7 +90,7 @@
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
-                    <port>8082</port>
+                    <port>8089</port>
                     <path>/</path>
                 </configuration>
             </plugin>

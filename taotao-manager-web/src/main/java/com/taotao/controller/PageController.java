@@ -26,6 +26,11 @@ public class PageController {
         return page;
     }
 
+    @RequestMapping(value = "/rest/page/{page}", method = RequestMethod.GET)
+    public String restPage(@PathVariable("page") String page) {
+        return page;
+    }
+
 
     @RequestMapping(value = "/item-add", method = RequestMethod.GET)
     public String itemAdd() {

@@ -6,13 +6,19 @@
         <groupId>com.taotao</groupId>
         <artifactId>taotao-content</artifactId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath/>
     </parent>
     <artifactId>taotao-content-service</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
         <!-- 添加接口的依赖 -->
-
+        <!-- 依赖taotao-manager-pojo -->
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>taotao-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>com.taotao</groupId>
             <artifactId>taotao-manager-dao</artifactId>
