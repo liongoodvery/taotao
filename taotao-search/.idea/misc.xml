@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/../taotao-search-web" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-search-service" />
   </component>
   <component name="MarkdownProjectSettings">
@@ -70,25 +69,14 @@
       <textMaps />
     </LinkMapSettings>
   </component>
-  <component name="MavenCompilerTasksManager">
-    <option name="beforeCompileTasks">
-      <set>
-        <MavenCompilerTask>
-          <option name="goal" value="clean" />
-          <option name="projectPath" value="$PROJECT_DIR$/../taotao-search-web/pom.xml" />
-        </MavenCompilerTask>
-      </set>
-    </option>
-  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/../taotao-search-web/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_3" project-jdk-name="JDK8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="JDK1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

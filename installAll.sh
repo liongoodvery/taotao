@@ -8,7 +8,7 @@ projectRoot=/home/lion/IdeaProjects/taotao
             exit 1
     fi
     echo "install $1"
-    mvn clean  source:jar install -Dmaven.test.skip=true
+    mvn clean  source:jar install -Dmaven.test.skip=true || exit 1
  }
 
  installAll(){
